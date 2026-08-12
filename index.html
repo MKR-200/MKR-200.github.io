@@ -3,138 +3,316 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Your Name | Personal Website</title>
+  <meta name="description" content="MKR — econometrics, data and research.">
+  <title>MKR | Econometrics & Data</title>
 
   <style>
+    :root {
+      --ink: #243238;
+      --muted: #65777a;
+      --accent: #3f777a;
+      --accent-dark: #2f5f62;
+      --wash: #e8f2f0;
+      --paper: #fbfaf6;
+      --card: #ffffff;
+      --line: #d7e2df;
+      --shadow: 0 10px 30px rgba(36, 50, 56, 0.08);
+      --radius: 18px;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background: #f5f7fa;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .shell {
+      width: min(920px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 2;
+      padding: 24px 0;
+    }
+
+    nav .shell {
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
     }
 
     header {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height: 480px;
+      display: grid;
+      place-items: center;
       text-align: center;
-      padding: 40px 20px;
-      background: #24292f;
-      color: white;
+      padding: 100px 20px 70px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.9), transparent 30%),
+        linear-gradient(135deg, #eef6f3 0%, #dcecea 55%, #f5efe4 100%);
+      border-bottom: 1px solid var(--line);
     }
 
-    header h1 {
-      margin-bottom: 10px;
-      font-size: 3rem;
+    .hero {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 9vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 700;
     }
 
     header p {
-      font-size: 1.25rem;
-      color: #d0d7de;
+      max-width: 620px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
     }
 
     main {
-      max-width: 900px;
-      margin: auto;
-      padding: 50px 20px;
+      padding: 76px 0 30px;
     }
 
     section {
-      margin-bottom: 50px;
+      margin-bottom: 78px;
+      scroll-margin-top: 32px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 26px;
     }
 
     h2 {
-      border-bottom: 2px solid #d0d7de;
-      padding-bottom: 8px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.2;
+    }
+
+    .section-heading::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .lead {
+      max-width: 760px;
+      font-size: 1.08rem;
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .project {
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
 
-    a {
-      color: #0969da;
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(36, 50, 56, 0.11);
+    }
+
+    .project small {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      margin: 10px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+    .project p {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .project a {
+      margin-top: auto;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .project a::after {
+      content: " →";
+    }
+
+    .contact-box {
+      padding: 30px;
+      background: var(--wash);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .contact-box p {
+      margin: 0;
     }
 
     footer {
-      padding: 25px;
+      padding: 28px 20px 40px;
       text-align: center;
-      color: #57606a;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 700px) {
+      nav .shell {
+        justify-content: center;
+        gap: 18px;
+      }
+
+      header {
+        min-height: 420px;
+      }
+
+      main {
+        padding-top: 56px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin-bottom: 58px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <nav aria-label="Main navigation">
+    <div class="shell">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
   <header>
-    <div>
-      <h1>Your Name</h1>
-      <p>Your profession, specialty, or short introduction</p>
+    <div class="hero">
+      <p class="eyebrow">Econometrics · Data · Research</p>
+      <h1>MKR</h1>
+      <p>
+        Econometrician in the making, interested in using data and quantitative methods
+        to understand economic questions.
+      </p>
     </div>
   </header>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>
-        Hello! I am an Econometrician in the making. Write a short introduction about your
-        experience, interests, education, or professional goals here.
+  <main class="shell">
+    <section id="about">
+      <div class="section-heading">
+        <h2>About</h2>
+      </div>
+      <p class="lead">
+        I am developing my work in econometrics, applied statistics and data analysis.
+        This site is a home for selected projects, notes and experiments as they develop.
       </p>
     </section>
 
-    <section>
-      <h2>Projects</h2>
+    <section id="projects">
+      <div class="section-heading">
+        <h2>Selected work</h2>
+      </div>
 
       <div class="projects">
         <article class="project">
-          <h3>Project One</h3>
-          <p>Briefly explain what this project does.</p>
-          <a href="#">View project</a>
+          <small>Project</small>
+          <h3>First econometrics project</h3>
+          <p>
+            A place for a short description of the question, method, data and main result.
+          </p>
+          <a href="https://github.com/MKR-200">View on GitHub</a>
         </article>
 
         <article class="project">
-          <h3>Project Two</h3>
-          <p>Briefly explain what this project does.</p>
-          <a href="#">View project</a>
+          <small>Research / notes</small>
+          <h3>Work in progress</h3>
+          <p>
+            Future research notes, replications, visualisations or coursework can live here.
+          </p>
+          <a href="https://github.com/MKR-200">Browse repositories</a>
         </article>
       </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:your-email@example.com">
-          your-email@example.com
-        </a>
-      </p>
+    <section id="contact">
+      <div class="section-heading">
+        <h2>Contact</h2>
+      </div>
 
-      <p>
-        GitHub:
-        <a href="https://github.com/MKR-200">
-          github.com/MKR-200
-        </a>
-      </p>
+      <div class="contact-box">
+        <p>
+          Find my work on
+          <a href="https://github.com/MKR-200">GitHub</a>.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
-    © 2026 Your Name
+    © 2026 MKR
   </footer>
 </body>
 </html>
