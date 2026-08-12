@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MKR — econometrics, data and research.">
+  <meta name="description" content="Personal website featuring econometrics, data and research projects.">
   <title>MKR | Econometrics & Data</title>
 
-  <style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8SFLrVwLn0Q_WxHMRneKUhOpOvFmmXZ4kk0GidZGjDE5M-uNr-4lJJYpR7wni-tgXJdWkUswojwL8XZ76FNwztSlHD9t0PAF7xyYLflAAj0T0Ol3LMymwjk0qY6m35FlShln1spyggCfIgaYYX_h5Xq1Hu25TlsC6n3exLWMwet3kvQzYtK5NeGIqsxxHDeLsrMtULD8c4JJ1o1Rz1jGYUXRF3a6qnsLONG-VrZlbiy_y1umjMirlqepA5N4jqi9NJBx_A9hCxkVHTxJ0GCZPZ-5oiw0Jp16r-1LW8vMXjo9ShU4DnjZlwqJVWI4VxFe" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDEyZGM4MjExYmFlYWM5ZWI0Njc3ZTk1ZCZmbj1pbmRleCUyODElMjkuaHRtbCZjZD1hdHRhY2htZW50JnRzPTQ5NjI2MSZwPWZzJmNpZD0xJnNpZz1jYWEyMzkzODQ3NWM3ZDFjOWExNDA2MTEyOWFhYzI0NmY1NDUxZmQ0MzcwODQ1NTU5ZjE5MGNhOGJjNzJkMDY0JnY9MA"/><style>
     :root {
       --ink: #243238;
       --muted: #65777a;
@@ -20,13 +20,9 @@
       --radius: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -41,9 +37,7 @@
       text-underline-offset: 3px;
     }
 
-    a:hover {
-      color: var(--accent);
-    }
+    a:hover { color: var(--accent); }
 
     .shell {
       width: min(920px, calc(100% - 40px));
@@ -82,9 +76,7 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .hero {
-      max-width: 760px;
-    }
+    .hero { max-width: 760px; }
 
     .eyebrow {
       margin: 0 0 12px;
@@ -111,9 +103,7 @@
       font-size: clamp(1.05rem, 2vw, 1.25rem);
     }
 
-    main {
-      padding: 76px 0 30px;
-    }
+    main { padding: 76px 0 30px; }
 
     section {
       margin-bottom: 78px;
@@ -148,7 +138,7 @@
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 22px;
     }
 
@@ -156,7 +146,7 @@
       min-height: 220px;
       display: flex;
       flex-direction: column;
-      padding: 28px;
+      padding: 30px;
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -177,25 +167,31 @@
     }
 
     .project h3 {
-      margin: 10px 0 8px;
+      margin: 10px 0 10px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.35rem;
+      font-size: 1.5rem;
+      line-height: 1.25;
     }
 
     .project p {
       margin: 0 0 22px;
       color: var(--muted);
+      max-width: 760px;
     }
 
-    .project a {
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
       margin-top: auto;
+    }
+
+    .project-links a {
       font-weight: 700;
       text-decoration: none;
     }
 
-    .project a::after {
-      content: " →";
-    }
+    .project-links a::after { content: " →"; }
 
     .contact-box {
       padding: 30px;
@@ -204,9 +200,7 @@
       border-radius: var(--radius);
     }
 
-    .contact-box p {
-      margin: 0;
-    }
+    .contact-box p { margin: 0; }
 
     footer {
       padding: 28px 20px 40px;
@@ -221,21 +215,11 @@
         gap: 18px;
       }
 
-      header {
-        min-height: 420px;
-      }
+      header { min-height: 420px; }
 
-      main {
-        padding-top: 56px;
-      }
+      main { padding-top: 56px; }
 
-      .projects {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        margin-bottom: 58px;
-      }
+      section { margin-bottom: 58px; }
     }
   </style>
 </head>
@@ -278,21 +262,26 @@
 
       <div class="projects">
         <article class="project">
-          <small>Project</small>
-          <h3>First econometrics project</h3>
+          <small>Econometrics · Electricity markets</small>
+          <h3>Battery Build-out and the Shape of California Electricity Prices</h3>
           <p>
-            A place for a short description of the question, method, data and main result.
+            A conditional-association study of whether California's rapid expansion of
+            utility-scale battery capacity is associated with changes in the CAISO SP15
+            day-ahead evening-minus-midday electricity price spread. Using daily data from
+            May 2023 through December 2025, the analysis highlights a key identification
+            challenge: battery capacity and the underlying time trend move almost together.
           </p>
-          <a href="https://github.com/MKR-200">View on GitHub</a>
+          <div class="project-links">
+            <a href="https://github.com/MKR-200/battery-price-project">View project on GitHub</a>
+          </div>
         </article>
 
         <article class="project">
           <small>Research / notes</small>
-          <h3>Work in progress</h3>
+          <h3>More work coming soon</h3>
           <p>
             Future research notes, replications, visualisations or coursework can live here.
           </p>
-          <a href="https://github.com/MKR-200">Browse repositories</a>
         </article>
       </div>
     </section>
